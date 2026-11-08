@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product | NutriGlow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f766e',
+            secondary: '#134e4a',
+            accent: '#14b8a6',
+            soft: '#f0fdfa',
+            dark: '#0f172a'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-soft font-sans text-dark antialiased">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-teal-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">N</div>
+          <span class="text-xl md:text-2xl font-bold tracking-tight">Nutri<span class="text-primary">Glow</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="collections.html" class="nav-link">Collections</a>
+          <a href="collections.html#nutrigain" class="nav-link">Nutrigain</a>
+          <a href="collections.html#slim-trim" class="nav-link">Slim & Trim</a>
+          <a href="collections.html#glow-garden" class="nav-link">Glow Garden</a>
+        </div>
+        <div class="flex items-center gap-4">
+          <button id="cart-btn" class="relative p-2 hover:bg-teal-50 rounded-full transition">
+            <i class="fas fa-shopping-bag text-xl text-dark"></i>
+            <span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+          </button>
+          <button id="mobile-menu-btn" class="md:hidden p-2">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-teal-100">
+      <div class="px-4 py-4 space-y-3">
+        <a href="index.html" class="block py-2 font-medium">Home</a>
+        <a href="collections.html" class="block py-2 font-medium">Collections</a>
+        <a href="collections.html#nutrigain" class="block py-2 font-medium">Nutrigain</a>
+        <a href="collections.html#slim-trim" class="block py-2 font-medium">Slim & Trim</a>
+        <a href="collections.html#glow-garden" class="block py-2 font-medium">Glow Garden</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Detail -->
+  <section class="pt-28 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-500 mb-8">
+        <a href="index.html" class="hover:text-primary">Home</a>
+        <span class="mx-2">/</span>
+        <a href="collections.html" class="hover:text-primary">Collections</a>
+        <span class="mx-2">/</span>
+        <span id="breadcrumb-name" class="text-dark font-medium">Product</span>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16" id="product-detail">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">You May Also Like</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="related-grid">
+        <!-- Injected -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-gray-300 py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white font-bold">N</div>
+            <span class="text-xl font-bold text-white">NutriGlow</span>
+          </div>
+          <p class="text-sm leading-relaxed">Premium wellness & beauty products designed to help you look and feel your best.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="collections.html#nutrigain" class="hover:text-accent transition">Nutrigain</a></li>
+            <li><a href="collections.html#slim-trim" class="hover:text-accent transition">Slim & Trim</a></li>
+            <li><a href="collections.html#glow-garden" class="hover:text-accent transition">Glow Garden</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-accent transition">Contact Us</a></li>
+            <li><a href="#" class="hover:text-accent transition">Shipping Info</a></li>
+            <li><a href="#" class="hover:text-accent transition">Returns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-10 pt-8 text-center text-sm">
+        <p>© 2026 NutriGlow. Demo for GitHub Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-[60] transform translate-x-full transition-transform duration-300">
+    <div class="flex flex-col h-full">
+      <div class="flex items-center justify-between p-5 border-b">
+        <h3 class="text-xl font-bold">Your Cart</h3>
+        <button id="close-cart" class="p-2 hover:bg-gray-100 rounded-full"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+      <div class="border-t p-5 space-y-4">
+        <div class="flex justify-between text-lg font-bold">
+          <span>Total</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        <button id="checkout-btn" class="w-full btn-primary py-3">Checkout</button>
+        <button id="clear-cart" class="w-full text-sm text-gray-500 hover:text-red-500">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+  <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-50 hidden"></div>
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-dark text-white px-6 py-3 rounded-full shadow-lg z-[70] opacity-0 pointer-events-none transition-opacity duration-300">Added to cart!</div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      if (id) {
+        renderProductDetail(id);
+      } else {
+        document.getElementById('product-detail').innerHTML = '<p class="text-center col-span-2 py-20 text-gray-500">Product not found. <a href="collections.html" class="text-primary underline">Back to collections</a></p>';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collections | NutriGlow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f766e',
+            secondary: '#134e4a',
+            accent: '#14b8a6',
+            soft: '#f0fdfa',
+            dark: '#0f172a'
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .explore-card {
+      background: #fff; border-radius: 1.25rem; padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1.25rem;
+      box-shadow: 0 1px 3px rgb(0 0 0 / 0.06); transition: all 0.25s ease;
+      border: 1px solid #f1f5f9; text-decoration: none; color: inherit; min-height: 120px;
+    }
+    .explore-card:hover {
+      box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1); transform: translateY(-2px); border-color: #99f6e4;
+    }
+    .explore-card img { width: 90px; height: 90px; object-fit: contain; flex-shrink: 0; }
+    .explore-card .info { flex: 1; min-width: 0; }
+    .explore-card .label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; color: #64748b; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .explore-card .title { font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 0.15rem; }
+    .explore-card .count { font-size: 0.8rem; color: #94a3b8; font-weight: 500; }
+    .explore-card .arrow {
+      width: 40px; height: 40px; border-radius: 9999px; background: #f1f5f9;
+      display: flex; align-items: center; justify-content: center; color: #64748b; flex-shrink: 0; transition: all 0.2s;
+    }
+    .explore-card:hover .arrow { background: #0f766e; color: #fff; }
+    .mini-cat {
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 0.5rem; border-radius: 1rem; text-decoration: none;
+      color: #475569; font-size: 0.75rem; font-weight: 500; transition: all 0.2s; min-width: 72px;
+    }
+    .mini-cat:hover { color: #0f766e; background: #f0fdfa; }
+    .mini-cat i { font-size: 1.35rem; color: #64748b; }
+    .mini-cat:hover i { color: #0f766e; }
+    .products-section { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-[#f8fafc] font-sans text-dark antialiased">
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-teal-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">N</div>
+          <span class="text-xl md:text-2xl font-bold tracking-tight">Nutri<span class="text-primary">Glow</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="collections.html" class="nav-link active">Collections</a>
+          <a href="#nutrigain" class="nav-link">Nutrigain</a>
+          <a href="#slim-trim" class="nav-link">Slim & Trim</a>
+          <a href="#glow-garden" class="nav-link">Glow Garden</a>
+        </div>
+        <div class="flex items-center gap-4">
+          <button id="cart-btn" class="relative p-2 hover:bg-teal-50 rounded-full transition">
+            <i class="fas fa-shopping-bag text-xl text-dark"></i>
+            <span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+          </button>
+          <button id="mobile-menu-btn" class="md:hidden p-2"><i class="fas fa-bars text-xl"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-teal-100">
+      <div class="px-4 py-4 space-y-3">
+        <a href="index.html" class="block py-2 font-medium">Home</a>
+        <a href="collections.html" class="block py-2 font-medium">Collections</a>
+        <a href="#nutrigain" class="block py-2 font-medium">Nutrigain</a>
+        <a href="#slim-trim" class="block py-2 font-medium">Slim & Trim</a>
+        <a href="#glow-garden" class="block py-2 font-medium">Glow Garden</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Explore Now -->
+  <section class="pt-28 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-4xl font-bold mb-8 text-dark">Explore Now</h1>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-6">
+        <a href="#nutrigain" class="explore-card">
+          <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=200&q=80" alt="Nutrigain" />
+          <div class="info"><div class="label">Explore</div><div class="title">Nutrigain</div><div class="count">3 Products</div></div>
+          <div class="arrow"><i class="fas fa-arrow-right text-sm"></i></div>
+        </a>
+        <a href="#slim-trim" class="explore-card">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=200&q=80" alt="Slim & Trim" />
+          <div class="info"><div class="label">Explore</div><div class="title">Slim & Trim</div><div class="count">3 Products</div></div>
+          <div class="arrow"><i class="fas fa-arrow-right text-sm"></i></div>
+        </a>
+        <a href="#glow-garden" class="explore-card">
+          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=200&q=80" alt="Glow Garden" />
+          <div class="info"><div class="label">Explore</div><div class="title">Glow Garden</div><div class="count">3 Products</div></div>
+          <div class="arrow"><i class="fas fa-arrow-right text-sm"></i></div>
+        </a>
+        <a href="#nutrigain" class="explore-card">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=200&q=80" alt="Mass Gainers" />
+          <div class="info"><div class="label">Explore</div><div class="title">Mass Gainers</div><div class="count">2 Products</div></div>
+          <div class="arrow"><i class="fas fa-arrow-right text-sm"></i></div>
+        </a>
+        <a href="#slim-trim" class="explore-card">
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=80" alt="Fat Burners" />
+          <div class="info"><div class="label">Explore</div><div class="title">Fat Burners</div><div class="count">2 Products</div></div>
+          <div class="arrow"><i class="fas fa-arrow-right text-sm"></i></div>
+        </a>
+        <a href="#glow-garden" class="explore-card">
+          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=200&q=80" alt="Skincare" />
+          <div class="info"><div class="label">Explore</div><div class="title">Skincare</div><div class="count">2 Products</div></div>
+          <div class="arrow"><i class="fas fa-arrow-right text-sm"></i></div>
+        </a>
+      </div>
+
+      <!-- Mini Categories -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-100 px-3 py-4 flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-4">
+        <a href="#nutrigain" class="mini-cat"><i class="fas fa-dumbbell"></i><span>Weight Gain</span></a>
+        <a href="#slim-trim" class="mini-cat"><i class="fas fa-fire"></i><span>Fat Burn</span></a>
+        <a href="#glow-garden" class="mini-cat"><i class="fas fa-spa"></i><span>Skincare</span></a>
+        <a href="#nutrigain" class="mini-cat"><i class="fas fa-flask"></i><span>Supplements</span></a>
+        <a href="#slim-trim" class="mini-cat"><i class="fas fa-leaf"></i><span>Detox</span></a>
+        <a href="#glow-garden" class="mini-cat"><i class="fas fa-magic"></i><span>Beauty</span></a>
+        <a href="#nutrigain" class="mini-cat"><i class="fas fa-bolt"></i><span>Energy</span></a>
+        <a href="#all-products" class="mini-cat font-semibold text-primary"><i class="fas fa-th-large text-primary"></i><span>View All</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nutrigain Products -->
+  <section id="nutrigain" class="products-section py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+        <div>
+          <span class="text-primary font-semibold text-xs tracking-widest uppercase">Collection</span>
+          <h2 class="text-2xl md:text-3xl font-bold mt-1">Nutrigain</h2>
+          <p class="text-gray-500 text-sm mt-1">Healthy weight gain & muscle support</p>
+        </div>
+        <span class="text-primary text-sm font-semibold">3 Products</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="nutrigain-grid"></div>
+    </div>
+  </section>
+
+  <!-- Slim & Trim -->
+  <section id="slim-trim" class="products-section py-14 bg-[#f8fafc]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+        <div>
+          <span class="text-primary font-semibold text-xs tracking-widest uppercase">Collection</span>
+          <h2 class="text-2xl md:text-3xl font-bold mt-1">Slim & Trim</h2>
+          <p class="text-gray-500 text-sm mt-1">Fat burning & body sculpting</p>
+        </div>
+        <span class="text-primary text-sm font-semibold">3 Products</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="slim-trim-grid"></div>
+    </div>
+  </section>
+
+  <!-- Glow Garden -->
+  <section id="glow-garden" class="products-section py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+        <div>
+          <span class="text-primary font-semibold text-xs tracking-widest uppercase">Collection</span>
+          <h2 class="text-2xl md:text-3xl font-bold mt-1">Glow Garden</h2>
+          <p class="text-gray-500 text-sm mt-1">Radiant skin & natural beauty</p>
+        </div>
+        <span class="text-primary text-sm font-semibold">3 Products</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="glow-garden-grid"></div>
+    </div>
+  </section>
+  <div id="all-products"></div>
+
+  <footer class="bg-dark text-gray-300 py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white font-bold">N</div>
+            <span class="text-xl font-bold text-white">NutriGlow</span>
+          </div>
+          <p class="text-sm leading-relaxed">Premium wellness & beauty products designed to help you look and feel your best.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#nutrigain" class="hover:text-accent transition">Nutrigain</a></li>
+            <li><a href="#slim-trim" class="hover:text-accent transition">Slim & Trim</a></li>
+            <li><a href="#glow-garden" class="hover:text-accent transition">Glow Garden</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-accent transition">Contact Us</a></li>
+            <li><a href="#" class="hover:text-accent transition">Shipping Info</a></li>
+            <li><a href="#" class="hover:text-accent transition">Returns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-10 pt-8 text-center text-sm">
+        <p>© 2026 NutriGlow. Demo for GitHub Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-[60] transform translate-x-full transition-transform duration-300">
+    <div class="flex flex-col h-full">
+      <div class="flex items-center justify-between p-5 border-b">
+        <h3 class="text-xl font-bold">Your Cart</h3>
+        <button id="close-cart" class="p-2 hover:bg-gray-100 rounded-full"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+      <div class="border-t p-5 space-y-4">
+        <div class="flex justify-between text-lg font-bold"><span>Total</span><span id="cart-total">$0.00</span></div>
+        <button id="checkout-btn" class="w-full btn-primary py-3">Checkout</button>
+        <button id="clear-cart" class="w-full text-sm text-gray-500 hover:text-red-500">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+  <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-50 hidden"></div>
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-dark text-white px-6 py-3 rounded-full shadow-lg z-[70] opacity-0 pointer-events-none transition-opacity duration-300">Added to cart!</div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCollection('nutrigain', 'nutrigain-grid');
+      renderCollection('slim-trim', 'slim-trim-grid');
+      renderCollection('glow-garden', 'glow-garden-grid');
+    });
+  </script>
+</body>
+</html>
